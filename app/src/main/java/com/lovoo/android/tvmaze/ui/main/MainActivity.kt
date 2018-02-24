@@ -1,9 +1,9 @@
 package com.lovoo.android.tvmaze
 
-import android.app.Activity
 import android.os.Bundle
+import com.lovoo.android.ui.base.BaseActivity
 
-class MainActivity : Activity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

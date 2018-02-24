@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TV-MAZE-API</string>
+    <string name="app_name">TV MAZE</string>
+    <string name="something_wrong">TV MAZE! Something wrong</string>
 </resources>
