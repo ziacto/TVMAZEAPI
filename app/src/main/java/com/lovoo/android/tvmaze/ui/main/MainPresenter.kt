@@ -8,7 +8,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MainPresenter<V : MainMvpView> @Inject constructor(private val dm: AppManager) : BasePresenter<V>(dm), MainMvpPresenter<V> {
+class MainPresenter<V : MainMvpView> @Inject constructor(private val am: AppManager) : BasePresenter<V>(am), MainMvpPresenter<V> {
 
     override fun loadTvEpisodeList(id: Int) {
         getMvpView()!!.showLoading()
