@@ -1,5 +1,6 @@
 package com.lovoo.android.ui.base
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.annotation.Nullable
 import android.support.annotation.StringRes
@@ -11,10 +12,11 @@ import android.widget.TextView
 import android.widget.Toast
 import com.lovoo.android.tvmaze.R
 import com.lovoo.android.tvmaze.utils.network.NetworkUtils
+import dagger.android.AndroidInjection
 
 abstract class BaseActivity : AppCompatActivity(), MvpView {
-
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
+        performDependencyInjection()
         super.onCreate(savedInstanceState)
     }
 
@@ -57,5 +59,9 @@ abstract class BaseActivity : AppCompatActivity(), MvpView {
         val textView = snackbar.view.findViewById<TextView>(android.support.design.R.id.snackbar_text) as TextView
         textView.setTextColor(ContextCompat.getColor(this, android.R.color.white))
         snackbar.show()
+    }
+    @SuppressLint("CheckResult")
+    private fun performDependencyInjection() {
+        AndroidInjection.inject(this)
     }
 }

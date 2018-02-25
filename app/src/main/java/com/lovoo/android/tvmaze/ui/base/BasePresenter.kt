@@ -1,9 +1,11 @@
 package com.lovoo.android.ui.base
 
-open class BasePresenter<V : MvpView>  : MvpPresenter<V> {
+import com.lovoo.android.tvmaze.data.AppManager
+
+open class BasePresenter<V : MvpView> constructor(private val dm: AppManager) : MvpPresenter<V> {
 
     private var mMvpView: V? = null
-
+    fun getDataManager(): AppManager? = dm
     override fun onDetach() {
         mMvpView = null
     }
