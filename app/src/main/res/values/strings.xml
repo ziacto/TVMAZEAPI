@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TV MAZE</string>
     <string name="something_wrong">TV MAZE! Something wrong</string>
+    <string name="show_detail_btn">Show Details</string>
 </resources>

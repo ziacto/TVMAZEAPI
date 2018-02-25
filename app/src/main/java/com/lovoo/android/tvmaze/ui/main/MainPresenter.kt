@@ -10,10 +10,8 @@ import javax.inject.Inject
 
 class MainPresenter<V : MainMvpView> @Inject constructor(private val dm: AppManager) : BasePresenter<V>(dm), MainMvpPresenter<V> {
 
-    @Suppress("PARAMETER_NAME_CHANGED_ON_OVERRIDE")
     override fun loadTvEpisodeList(id: Int) {
         getMvpView()!!.showLoading()
-
         getDataManager()!!.getTvEpisodeList(id)!!.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : ApiCallback<List<Episode>>() {
 

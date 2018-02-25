@@ -1,6 +1,5 @@
 package com.lovoo.android.ui.base
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.annotation.Nullable
 import android.support.annotation.StringRes
@@ -8,6 +7,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.lovoo.android.tvmaze.R
@@ -15,8 +15,9 @@ import com.lovoo.android.tvmaze.utils.network.NetworkUtils
 import dagger.android.AndroidInjection
 
 abstract class BaseActivity : AppCompatActivity(), MvpView {
+    private var mProgressView: ProgressBar? = null
     override fun onCreate(@Nullable savedInstanceState: Bundle?) {
-        performDependencyInjection()
+        DependencyInjection()
         super.onCreate(savedInstanceState)
     }
 
@@ -24,9 +25,13 @@ abstract class BaseActivity : AppCompatActivity(), MvpView {
         get() = NetworkUtils.isNetworkConnected(this)
 
     override fun showLoading() {
+        hideLoading()
+        mProgressView = findViewById(R.id.progressView)
+        mProgressView?.visibility = View.VISIBLE
     }
 
     override fun hideLoading() {
+        mProgressView?.visibility = View.INVISIBLE
     }
 
     override fun onError(message: String?) {
@@ -60,8 +65,9 @@ abstract class BaseActivity : AppCompatActivity(), MvpView {
         textView.setTextColor(ContextCompat.getColor(this, android.R.color.white))
         snackbar.show()
     }
-    @SuppressLint("CheckResult")
-    private fun performDependencyInjection() {
+
+
+    private fun DependencyInjection() {
         AndroidInjection.inject(this)
     }
 }

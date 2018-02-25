@@ -1,5 +1,6 @@
 package com.lovoo.android.tvmaze.App.di.builder
 import com.lovoo.android.tvmaze.MainActivity
+import com.lovoo.android.tvmaze.ui.detail.EpisodeDetailsActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -7,5 +8,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuilder {
     @ContributesAndroidInjector
     abstract fun bindMainActivity(): MainActivity
-
+    @ContributesAndroidInjector
+    abstract fun bindEpisodeDetailsActivity(): EpisodeDetailsActivity
 }

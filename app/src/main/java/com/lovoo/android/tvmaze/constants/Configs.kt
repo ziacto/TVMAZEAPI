@@ -3,5 +3,5 @@ package com.lovoo.android.tvmaze.constants
 
 object Configs {
     const val BASE_URL = "http://api.tvmaze.com/"
-    const val starTrackTvrg = 7480
+    const val starTrekId = 7480
 }

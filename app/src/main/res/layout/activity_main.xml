@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -14,4 +15,15 @@
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         tools:listitem="@layout/main_item_list" />
 
+    <ProgressBar
+        android:id="@+id/progressView"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/recycler_view"
+        app:layout_constraintStart_toStartOf="@+id/recycler_view"
+        app:layout_constraintTop_toTopOf="@+id/recycler_view"
+        tools:visibility="visible" />
 </android.support.constraint.ConstraintLayout>
