@@ -54,8 +54,6 @@ The App has following features:
 
 
 #### App Video
-
-[Gif](gif/apptour.gif)
 ![](https://raw.githubusercontent.com/boygaggoo/TVMAZEAPI/master/gif/apptour.gif)
 
 
