@@ -55,7 +55,7 @@ The App has following features:
 
 #### App Video
 
-[Gif](gif/ribble_demo.gif)
+[Gif](gif/apptour.gif)
 
 
 Thanks for your reading
