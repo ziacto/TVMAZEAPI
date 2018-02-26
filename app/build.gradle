@@ -7,6 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'org.jetbrains.kotlin.android.extensions'
 
 apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -29,6 +30,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 project.ext {
     supportLibraryVersion = '26.1.0'
@@ -65,10 +67,22 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // App Testing with Spek
+    testImplementation ('org.jetbrains.spek:spek-api:1.1.5') {
+        exclude group: 'org.jetbrains.kotlin'
+    }
+    testImplementation ('org.jetbrains.spek:spek-junit-platform-engine:1.1.5') {
+        exclude group: 'org.junit.platform'
+        exclude group: 'org.jetbrains.kotlin'
+    }
+    testImplementation "com.nhaarman:mockito-kotlin:1.5.0"
+
 }
 repositories {
     mavenCentral()
+    maven { url "http://dl.bintray.com/jetbrains/spek" }
 }
 androidExtensions {
     experimental = true
 }
+
